@@ -19,7 +19,7 @@ export default function SignUpPage() {
             <div className="flex justify-between items-center ">
               <CardDescription>Already have an account?</CardDescription>
               <CardAction>
-                <Link href="/sign-in" className="hover:underline text-sm">
+                <Link href="/login" className="hover:underline text-sm">
                   Sign In
                 </Link>
               </CardAction>
