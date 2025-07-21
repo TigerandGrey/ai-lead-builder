@@ -69,11 +69,11 @@ const SupabaseLead: FC<SupabaseLeadProps> = ({ supabaseLead }) => {
 
 // Main Kanban Board Component
 const KanbanBoard: FC<KanbanProps> = ({ supabaseLeads, setSupabaseLeads, refreshKey }) => {
-  const [columns, setColumns] = useState<ColumnType[]>([
+  const columns: ColumnType[] = [
     { id: "Draft", title: "Draft" },
     { id: "Sent", title: "Sent" },
     { id: "Approved", title: "Approved" },
-  ]);
+  ];
 
   useEffect(() => {
     setSupabaseLeads(supabaseLeads);
@@ -121,6 +121,7 @@ const KanbanBoard: FC<KanbanProps> = ({ supabaseLeads, setSupabaseLeads, refresh
 
       toast.success("Lead updated successfully!");
     } catch (error) {
+      console.error(error);
       toast.error("Failed to update lead");
     }
   };

@@ -62,6 +62,7 @@ const CreateNewLeadButton = () => {
       toast.success("Message generated!");
       setIsLoading(false);
     } catch (error) {
+      console.error(error);
       toast.error("Failed to generate message");
       setIsLoading(false);
     }
@@ -106,6 +107,7 @@ const CreateNewLeadButton = () => {
       setGeneratedMessage("");
       setIsLoading(false);
     } catch (error) {
+      console.error(error);
       toast.error("Failed to save lead");
       setIsLoading(false);
     }

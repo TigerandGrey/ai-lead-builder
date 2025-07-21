@@ -30,6 +30,7 @@ const DownloadLeadsButton = () => {
       window.URL.revokeObjectURL(url);
       document.body.removeChild(a);
     } catch (error) {
+      console.error(error);
       toast("Download failed. Please try again.");
     } finally {
       setIsLoading(false);

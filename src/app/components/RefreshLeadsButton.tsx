@@ -22,6 +22,7 @@ const RefreshLeadsButton: FC<RefreshLeadsButtonProps> = ({ setSupabaseLeads }) =
       setSupabaseLeads(data);
       toast.success("Lead refreshed successfully!");
     } catch (error) {
+      console.error(error);
       toast.error("Failed to refresh leads");
     }
   };

@@ -5,7 +5,7 @@ import { SupabaseLeadType } from "@/lib/types";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
 
 // Fetch one lead
-export const GET = async (req: Request, { params }: { params: { id: string } }) => {
+const GET = async (req: Request, { params }: { params: Promise<{ id: string }> }) => {
   const { id } = await params;
   try {
     const supabase = await createSupabaseServerClient();
@@ -21,7 +21,7 @@ export const GET = async (req: Request, { params }: { params: { id: string } }) 
 };
 
 // Update one lead
-export const PUT = async (req: Request, { params }: { params: { id: string } }) => {
+const PUT = async (req: Request, { params }: { params: Promise<{ id: string }> }) => {
   const { id } = await params;
   const lead: SupabaseLeadType = await req.json();
 
@@ -39,7 +39,7 @@ export const PUT = async (req: Request, { params }: { params: { id: string } }) 
 };
 
 // Delete one lead
-export const DELETE = async (req: Request, { params }: { params: { id: string } }) => {
+const DELETE = async (req: Request, { params }: { params: Promise<{ id: string }> }) => {
   const { id } = await params;
   try {
     const supabase = await createSupabaseServerClient();
@@ -53,3 +53,5 @@ export const DELETE = async (req: Request, { params }: { params: { id: string } 
     return NextResponse.json({ error: `Failed to delete lead with id ${id}: ${error}` }, { status: 500 });
   }
 };
+
+export { GET, PUT, DELETE };
