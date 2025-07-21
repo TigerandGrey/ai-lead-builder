@@ -1,0 +1,10 @@
+{
+  "rules": {
+    "spellcheck/spell-checker": [
+      1,
+      {
+        "skipWords": ["supabase", "nextjs"]
+      }
+    ]
+  }
+}
